@@ -1,4 +1,6 @@
-﻿namespace D20_Grupp_1
+﻿using System.Runtime.CompilerServices;
+
+namespace D20_Grupp_1
 {
     internal class Program
     {
@@ -31,6 +33,20 @@
             public string name;
             public string phone;
             public string adress;
+
+            public Person(string name, string phone, string adress)
+            {
+                this.name = name;
+                this.phone = phone;
+                this.adress = adress;
+            }
+
+            public void Print()
+            {
+                Console.WriteLine($"Name: {this.name}\n Phone: {this.phone}\n Adress: {this.adress}");
+            }
+            static List<string> phoneList = new List<string>();
         }
+       
     }
 }
