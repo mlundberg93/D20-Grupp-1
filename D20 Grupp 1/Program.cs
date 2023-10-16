@@ -26,5 +26,11 @@
             } while (command != "sluta");
             Console.WriteLine("Hej då!");
         }
+        public class Person
+        {
+            public string name;
+            public string phone;
+            public string adress;
+        }
     }
 }
