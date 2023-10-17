@@ -6,28 +6,41 @@ namespace D20_Grupp_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hej och välkommen till adresslistan.");
-            Console.WriteLine("Skriv 'hjälp' för hjälp!");
+            Console.WriteLine("Hello and welcome to the Yellow Pages!");
+            Console.WriteLine("If you need help, type help!");
             string command;
             do
             {
-                Console.Write("Kommando: ");
+                Console.Write("Command: ");
                 command = Console.ReadLine();
-                if (command == "hjälp")
+                if (command.ToLower() == "Help".ToLower())
                 {
-                    Console.WriteLine($"Tyvärr ej implementerat!");
+                    Console.WriteLine($"You can choose between these commandos: \n Load \n Add \n Save \n Delete \n Exit");
                 }
-                else if (command == "sluta")
+                else if (command.ToLower() == "Exit".ToLower())
                 {
 
+                }
+                else if (command.ToLower() == "Load".ToLower())
+                {
+                    string[] text = File.ReadAllLines("adresser.txt");
+                    foreach (lines in text)
+                    {
+
+                    }
+                    
+
+                    //phoneList.Add(new Person(name[0], phone, adress));
+                    Console.WriteLine(text);
                 }
                 else
                 {
                     Console.WriteLine($"Okänt kommando: {command}");
                 }
-            } while (command != "sluta");
+            } while (command.ToLower() != "Exit".ToLower());
             Console.WriteLine("Hej då!");
         }
+        static List<Person> phoneList = new List<Person>();
         public class Person
         {
             public string name;
@@ -45,8 +58,9 @@ namespace D20_Grupp_1
             {
                 Console.WriteLine($"Name: {this.name}\n Phone: {this.phone}\n Adress: {this.adress}");
             }
-            static List<string> phoneList = new List<string>();
+
         }
-       
+
+
     }
 }
