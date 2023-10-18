@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace D20_Grupp_1
 {
@@ -24,21 +25,28 @@ namespace D20_Grupp_1
                 else if (command.ToLower() == "Load".ToLower())
                 {
                     string[] text = File.ReadAllLines("adresser.txt");
-                    foreach (lines in text)
+                    foreach (string s in text)
                     {
-
+                        string[] splitLine = s.Split(',');
+                        phoneList.Add(new Person(splitLine[0], splitLine[1], splitLine[2]));
+                        //Console.WriteLine($"Name: {splitLine[0]} \nPhone: {splitLine[1]} \nAdress: {splitLine[2]}\n");
                     }
                     
-
-                    //phoneList.Add(new Person(name[0], phone, adress));
-                    Console.WriteLine(text);
+                }
+                else if (command.ToLower() == "List".ToLower())
+                {
+                    Console.WriteLine($"The yellow pages so far contains: \n");
+                    foreach (Person p in phoneList)
+                    {
+                        p.Print();
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"Okänt kommando: {command}");
+                    Console.WriteLine($"Unkown command: {command}");
                 }
             } while (command.ToLower() != "Exit".ToLower());
-            Console.WriteLine("Hej då!");
+            Console.WriteLine("Goodbye!");
         }
         static List<Person> phoneList = new List<Person>();
         public class Person
@@ -56,7 +64,7 @@ namespace D20_Grupp_1
 
             public void Print()
             {
-                Console.WriteLine($"Name: {this.name}\n Phone: {this.phone}\n Adress: {this.adress}");
+                Console.WriteLine($"Name: {this.name}\n Phone: {this.phone}\n Adress: {this.adress}\n");
             }
 
         }
