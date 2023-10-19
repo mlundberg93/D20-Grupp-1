@@ -1,0 +1,8 @@
+Arne Svensson,013-113 13 13,Datasvängen 23
+Berith Qvist,014-114 14 14,Telegränd 45
+Caesar Augustus,091-432 87 65,Optikervägen 10
+Dagobert Uggla,047-56 64 72,Cobolgränd 77
+Eleanor Smith,017-116 15 22,Algolgatan 60
+Marcus Lundberg,123456,Fina Gatan 1
+Marcus Hunter,123456,Skråttan
+Asken,12341234,Puffen

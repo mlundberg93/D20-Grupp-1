@@ -5,14 +5,24 @@ namespace D20_Grupp_1
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
-            
+
+            string userProfilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string filePath = Path.Combine(userProfilePath, "Documents", "adresser.txt");
+
+            if(!File.Exists(filePath))
+            {
+                File.Copy("adresser.txt", filePath);
+            }
             Console.WriteLine("Hello and welcome to the Yellow Pages!");
             Console.WriteLine("If you need help, type help!");
             string command;
             do
             {
+
+
                 Console.Write("Command: ");
                 command = Console.ReadLine();
                 if (command.ToLower() == "Help".ToLower())
@@ -25,7 +35,7 @@ namespace D20_Grupp_1
                 }
                 else if (command.ToLower() == "Load".ToLower())
                 {
-                    string[] text = File.ReadAllLines("adresser.txt");
+                    string[] text = File.ReadAllLines(filePath);
                     foreach (string s in text)
                     {
                         string[] splitLine = s.Split(',');
@@ -54,9 +64,9 @@ namespace D20_Grupp_1
                 }
                 else if (command.ToLower() == "Save".ToLower())
                 {
-                    string newFile = "adresser.txt";
+                    
                     Console.WriteLine($"Saving data to the database!");
-                    using (StreamWriter saveFile = new StreamWriter(newFile))
+                    using (StreamWriter saveFile = new StreamWriter(filePath))
                     {
                         foreach (Person p in phoneList)
                         {
